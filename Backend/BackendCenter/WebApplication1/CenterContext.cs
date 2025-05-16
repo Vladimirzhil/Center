@@ -197,6 +197,7 @@ public partial class CenterContext : DbContext
             entity.ToTable("objectsurvey");
 
             entity.Property(e => e.Objectsurveyid).HasColumnName("objectsurveyid");
+            entity.Property(e => e.Clientid).HasColumnName("clientid");
             entity.Property(e => e.Addressid).HasColumnName("addressid");
             entity.Property(e => e.Objectarea).HasColumnName("objectarea");
             entity.Property(e => e.Organizationid).HasColumnName("organizationid");
@@ -210,7 +211,13 @@ public partial class CenterContext : DbContext
                 .HasForeignKey(d => d.Organizationid)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("objectsurvey_organizationid_fkey");
+
+            entity.HasOne(d => d.Client).WithMany(p => p.Objectsurveys)
+                .HasForeignKey(d => d.Clientid)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("objectsurvey_clientid_fkey");
         });
+
 
         modelBuilder.Entity<Organization>(entity =>
         {

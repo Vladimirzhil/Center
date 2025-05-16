@@ -7,11 +7,15 @@ public partial class Objectsurvey
 {
     public int Objectsurveyid { get; set; }
 
+    public int? Clientid { get; set; }
+
     public int? Addressid { get; set; }
 
     public int? Organizationid { get; set; }
 
     public double Objectarea { get; set; }
+
+    public virtual Client? Client { get; set; }
 
     public virtual Address? Address { get; set; }
 

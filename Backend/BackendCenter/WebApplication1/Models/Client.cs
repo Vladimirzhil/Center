@@ -11,6 +11,7 @@ public partial class Client
 
     public string Phone { get; set; } = null!;
 
+    public virtual ICollection<Objectsurvey> Objectsurveys { get; set; } = new List<Objectsurvey>();
     public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
     public virtual ICollection<Users> Userses { get; set; } = new List<Users>();
 }

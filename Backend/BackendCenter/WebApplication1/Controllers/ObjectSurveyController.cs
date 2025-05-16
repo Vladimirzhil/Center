@@ -25,6 +25,7 @@ public class ObjectSurveyController : ControllerBase
             .Select(o => new ObjectSurveyDto
             {
                 ObjectSurveyId = o.Objectsurveyid,
+                ClientId = o.Clientid,
                 AddressId = o.Addressid,
                 OrganizationId = o.Organizationid,
                 ObjectArea=o.Objectarea
@@ -43,6 +44,7 @@ public class ObjectSurveyController : ControllerBase
         return Ok(new ObjectSurveyDto
         {
             ObjectSurveyId = objectsurvey.Objectsurveyid,
+            ClientId = objectsurvey.Clientid,
             AddressId = objectsurvey.Addressid,
             OrganizationId = objectsurvey.Organizationid,
             ObjectArea = objectsurvey.Objectarea,
@@ -55,6 +57,7 @@ public class ObjectSurveyController : ControllerBase
     {
         var objectsurvey = new Objectsurvey
         {
+            Clientid = dto.ClientId,
             Addressid = dto.AddressId,
             Organizationid = dto.OrganizationId,
             Objectarea= dto.ObjectArea
@@ -65,6 +68,7 @@ public class ObjectSurveyController : ControllerBase
 
         return CreatedAtAction(nameof(GetObjectSurvey), new { id = objectsurvey.Objectsurveyid }, new ObjectSurveyDto
         {
+            ClientId = objectsurvey.Clientid,
             AddressId = objectsurvey.Addressid,
             OrganizationId = objectsurvey.Organizationid,
             ObjectArea = objectsurvey.Objectarea
@@ -78,6 +82,7 @@ public class ObjectSurveyController : ControllerBase
         var objectsurvey = await _context.Objectsurveys.FindAsync(id);
         if (objectsurvey == null) return NotFound();
 
+        objectsurvey.Clientid = dto.ClientId;
         objectsurvey.Addressid = dto.AddressId;
         objectsurvey.Organizationid = dto.OrganizationId;
         objectsurvey.Objectarea = dto.ObjectArea;
