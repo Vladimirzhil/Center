@@ -44,6 +44,9 @@ public partial class CenterContext : DbContext
     public virtual DbSet<Surveyreport> Surveyreports { get; set; }
 
     public virtual DbSet<Userlog> Userlogs { get; set; }
+    public virtual DbSet<Users> Userses { get; set; }
+    public virtual DbSet<Roles> Roleses { get; set; }
+
 
     public virtual DbSet<ClientApplicationDto> ClientApplicationDtos { get; set; }
 
@@ -133,14 +136,10 @@ public partial class CenterContext : DbContext
 
             entity.ToTable("client");
 
-            entity.HasIndex(e => e.Email, "client_email_key").IsUnique();
-
             entity.HasIndex(e => e.Phone, "client_phone_key").IsUnique();
 
             entity.Property(e => e.Clientid).HasColumnName("clientid");
-            entity.Property(e => e.Email)
-                .HasMaxLength(100)
-                .HasColumnName("email");
+            
             entity.Property(e => e.Fio)
                 .HasMaxLength(40)
                 .HasColumnName("fio");
@@ -155,15 +154,11 @@ public partial class CenterContext : DbContext
 
             entity.ToTable("employee");
 
-            entity.HasIndex(e => e.Email, "employee_email_key").IsUnique();
-
             entity.HasIndex(e => e.Phone, "employee_phone_key").IsUnique();
 
             entity.Property(e => e.Employeeid).HasColumnName("employeeid");
             entity.Property(e => e.Brigadeid).HasColumnName("brigadeid");
-            entity.Property(e => e.Email)
-                .HasMaxLength(100)
-                .HasColumnName("email");
+       
             entity.Property(e => e.Fio)
                 .HasMaxLength(40)
                 .HasColumnName("fio");
@@ -361,6 +356,53 @@ public partial class CenterContext : DbContext
             entity.Property(e => e.Usern).HasColumnName("usern");
         });
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Roles>(entity =>
+        {
+            entity.HasKey(e => e.Roleid).HasName("roles_pkey");
+
+            entity.ToTable("roles");
+
+            entity.Property(e => e.Roleid).HasColumnName("roleid");
+            entity.Property(e => e.Rolename)
+                .HasMaxLength(50)
+                .HasColumnName("rolename");
+        });
+
+        modelBuilder.Entity<Users>(entity =>
+        {
+            entity.HasKey(e => e.Userid).HasName("users_pkey");
+
+            entity.ToTable("users");
+
+            entity.HasIndex(e => e.Email, "users_email_key").IsUnique();
+
+            entity.Property(e => e.Userid).HasColumnName("userid");
+            entity.Property(e => e.Email)
+                .HasMaxLength(100)
+                .HasColumnName("email");
+            entity.Property(e => e.Passwordhash)
+                .HasMaxLength(255)
+                .HasColumnName("passwordhash");
+            entity.Property(e => e.Roleid).HasColumnName("roleid");
+            entity.Property(e => e.Clientid).HasColumnName("clientid");
+            entity.Property(e => e.Employeeid).HasColumnName("employeeid");
+
+            entity.HasOne(d => d.Roles).WithMany(p => p.Userses)
+                .HasForeignKey(d => d.Roleid)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("users_roleid_fkey");
+
+            entity.HasOne(d => d.Client).WithMany(p => p.Userses)
+                .HasForeignKey(d => d.Clientid)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("users_clientid_fkey");
+
+            entity.HasOne(d => d.Employee).WithMany(p => p.Userses)
+                .HasForeignKey(d => d.Employeeid)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("users_employeeid_fkey");
+        });
 
         modelBuilder.Entity<ClientApplicationDto>().HasNoKey();
         modelBuilder.Entity<OrganizationAnalysisDto>().HasNoKey();

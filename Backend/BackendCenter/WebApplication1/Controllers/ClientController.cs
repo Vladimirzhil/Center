@@ -25,8 +25,7 @@ public class ClientController : ControllerBase
             {
                 ClientId = c.Clientid,
                 Fio = c.Fio,
-                Phone = c.Phone,
-                Email = c.Email
+                Phone = c.Phone
             }).ToListAsync();
 
         return Ok(clients);
@@ -43,8 +42,7 @@ public class ClientController : ControllerBase
         {
             ClientId = client.Clientid,
             Fio = client.Fio,
-            Phone = client.Phone,
-            Email = client.Email
+            Phone = client.Phone
         });
     }
 
@@ -56,7 +54,6 @@ public class ClientController : ControllerBase
         {
             Fio = dto.Fio,
             Phone = dto.Phone,
-            Email = dto.Email
         };
 
         _context.Clients.Add(client);
@@ -66,8 +63,7 @@ public class ClientController : ControllerBase
         {
             ClientId = client.Clientid,
             Fio = client.Fio,
-            Phone = client.Phone,
-            Email = client.Email
+            Phone = client.Phone
         });
     }
 
@@ -80,7 +76,6 @@ public class ClientController : ControllerBase
 
         client.Fio = dto.Fio;
         client.Phone = dto.Phone;
-        client.Email = dto.Email;
 
         await _context.SaveChangesAsync();
         return NoContent();

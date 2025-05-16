@@ -25,7 +25,6 @@ public class EmployeeController : ControllerBase
                 Employeeid = e.Employeeid,
                 Fio = e.Fio,
                 Phone = e.Phone,
-                Email = e.Email,
                 JobTitleId = e.Jobtitleid,
                 BrigadeId = e.Brigadeid
             }).ToListAsync();
@@ -44,7 +43,6 @@ public class EmployeeController : ControllerBase
             Employeeid = e.Employeeid,
             Fio = e.Fio,
             Phone = e.Phone,
-            Email = e.Email,
             JobTitleId = e.Jobtitleid,
             BrigadeId = e.Brigadeid
         });
@@ -58,7 +56,6 @@ public class EmployeeController : ControllerBase
         {
             Fio = dto.Fio,
             Phone = dto.Phone,
-            Email = dto.Email,
             Jobtitleid = dto.JobTitleId,
             Brigadeid = dto.BrigadeId
         };
@@ -71,7 +68,6 @@ public class EmployeeController : ControllerBase
             Employeeid = entity.Employeeid,
             Fio = entity.Fio,
             Phone = entity.Phone,
-            Email = entity.Email,
             JobTitleId = entity.Jobtitleid,
             BrigadeId = entity.Brigadeid
         });
@@ -86,7 +82,6 @@ public class EmployeeController : ControllerBase
 
         entity.Fio = dto.Fio;
         entity.Phone = dto.Phone;
-        entity.Email = dto.Email;
         entity.Jobtitleid = dto.JobTitleId;
         entity.Brigadeid = dto.BrigadeId;
 

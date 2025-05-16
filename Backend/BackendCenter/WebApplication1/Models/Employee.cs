@@ -11,8 +11,6 @@ public partial class Employee
 
     public string Phone { get; set; } = null!;
 
-    public string Email { get; set; } = null!;
-
     public int? Jobtitleid { get; set; }
 
     public int? Brigadeid { get; set; }
@@ -24,4 +22,6 @@ public partial class Employee
     public virtual ICollection<Surveyagreement> Surveyagreements { get; set; } = new List<Surveyagreement>();
 
     public virtual ICollection<Surveyreport> Surveyreports { get; set; } = new List<Surveyreport>();
+
+    public virtual ICollection<Users> Userses { get; set; } = new List<Users>();
 }
