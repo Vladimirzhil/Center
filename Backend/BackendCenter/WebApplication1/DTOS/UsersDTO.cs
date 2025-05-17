@@ -2,10 +2,14 @@
 
 namespace WebApplication1.DTOS
 {
-    public class UsersCreateDTO
+    public class UsersUpdateDTO
     {
         public string Email { get; set; }
         public string PasswordHash { get; set; }
+    }
+
+    public class UsersCreateDTO: UsersUpdateDTO
+    {
         public int? RoleId { get; set; }
         public int? ClientId { get; set; }
         public int? EmployeeId { get; set; }

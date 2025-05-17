@@ -1,5 +1,12 @@
 ﻿namespace WebApplication1.DTOS
 {
+    public class ObjectSurveyCreateClientDto
+    {
+        public float ObjectArea { get; set; }
+        public AddressDto Address { get; set; }
+        public OrganizationDto Organization { get; set; }
+    }
+
     public class ObjectSurveyCreateDto
     {
         public int? ClientId { get; set; }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApplication1;
@@ -7,6 +8,8 @@ using WebApplication1.Models;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "Admin")]
+
 public class JobTitleController : ControllerBase
 {
     private readonly CenterContext _context;

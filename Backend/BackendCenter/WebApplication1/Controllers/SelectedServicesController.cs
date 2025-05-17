@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApplication1;
@@ -18,6 +19,7 @@ public class SelectedServicesController : ControllerBase
 
     // GET: api/SelectedServices
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<SelectedServicesDto>>> GetSelectedServiceses()
     {
         var selectedservices = await _context.Selectedservices
@@ -35,6 +37,7 @@ public class SelectedServicesController : ControllerBase
 
     // GET: api/SelectedServices/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<SelectedServicesDto>> GetSelectedServices(int id)
     {
         var selectedservices = await _context.Selectedservices.FindAsync(id);
@@ -49,9 +52,32 @@ public class SelectedServicesController : ControllerBase
             CostServices = selectedservices.Costservices
         });
     }
+    // GET: api/SelectedServices/by-application/5
+    [HttpGet("by-application/{applicationId}")]
+    [Authorize(Roles = "Admin,Employee")]
+    public async Task<ActionResult<IEnumerable<SelectedServicesDto>>> GetSelectedServicesByApplication(int applicationId)
+    {
+        var selectedServices = await _context.Selectedservices
+            .Where(s => s.Applicationid == applicationId)
+            .Select(s => new SelectedServicesDto
+            {
+                SelectedServicesId = s.Selectedservicesid,
+                ServiceId = s.Serviceid,
+                ApplicationId = s.Applicationid,
+                Volume = s.Volume,
+                CostServices = s.Costservices
+            })
+            .ToListAsync();
+
+        if (selectedServices == null || selectedServices.Count == 0)
+            return NotFound("Для данной заявки не найдено выбранных услуг.");
+
+        return Ok(selectedServices);
+    }
 
     // POST: api/SelectedServices
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<SelectedServicesDto>> CreateSelectedServices(SelectedServicesCreateDto dto)
     {
         var selectedservices = new Selectedservice
@@ -77,6 +103,7 @@ public class SelectedServicesController : ControllerBase
 
     // PUT: api/SelectedServices/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateSelectedServices(int id, SelectedServicesCreateDto dto)
     {
         var selectedservices = await _context.Selectedservices.FindAsync(id);
@@ -93,6 +120,7 @@ public class SelectedServicesController : ControllerBase
 
     // DELETE: api/SelectedServices/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteSelectedServices(int id)
     {
         var selectedservices = await _context.Selectedservices.FindAsync(id);

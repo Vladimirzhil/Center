@@ -3,6 +3,7 @@ using WebApplication1.DTOS;
 using WebApplication1.Models;
 using WebApplication1;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -19,6 +20,7 @@ public class SurveyReportController : ControllerBase
 
     // GET: api/SurveyReport
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<SurveyReportDto>>> GetSurveyReports()
     {
         var reports = await _context.Surveyreports
@@ -36,6 +38,7 @@ public class SurveyReportController : ControllerBase
 
     // GET: api/SurveyReport/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<SurveyReportDto>> GetSurveyReport(int id)
     {
         var report = await _context.Surveyreports.FindAsync(id);
@@ -53,6 +56,7 @@ public class SurveyReportController : ControllerBase
     // POST: api/SurveyReport
     [HttpPost("upload")]
     [Consumes("multipart/form-data")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<IActionResult> Upload([FromForm] UploadSurveyReportDto dto)
     {
         if (dto.File == null || dto.File.Length == 0)
@@ -88,6 +92,7 @@ public class SurveyReportController : ControllerBase
     // PUT: api/SurveyReport
     [HttpPut("update")]
     [Consumes("multipart/form-data")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<IActionResult> Update([FromForm] UpdateSurveyReportDto dto)
     {
         var report = await _context.Surveyreports.FindAsync(dto.ReportId);
@@ -125,6 +130,7 @@ public class SurveyReportController : ControllerBase
 
     // GET: api/SurveyReport/Download/5
     [HttpGet("download/{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<IActionResult> DownloadSurveyReport(int id)
     {
         var report = await _context.Surveyreports.FindAsync(id);
@@ -148,6 +154,7 @@ public class SurveyReportController : ControllerBase
 
     // DELETE: api/SurveyReport
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteSurveyReport(int id)
     {
         var report = await _context.Surveyreports.FindAsync(id);

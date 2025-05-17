@@ -13,7 +13,7 @@ public partial class Surveyreport
 
     public string Filereport { get; set; } = null!;
 
-    public virtual Application? Aplication { get; set; }
+    public virtual Application? Application { get; set; }
 
     public virtual Employee? Employee { get; set; }
 

@@ -8,6 +8,7 @@ using System.Text;
 using WebApplication1.DTOS;
 using WebApplication1.Models;
 using BCrypt.Net;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers
 {
@@ -65,7 +66,8 @@ namespace WebApplication1.Controllers
     }
 
     [HttpPost("register/employee")]
-    public async Task<IActionResult> RegisterEmployee(RegisterEmployeeDto dto)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> RegisterEmployee(RegisterEmployeeDto dto)
     {
         if (await _context.Userses.AnyAsync(u => u.Email == dto.Email))
             return BadRequest("Пользователь с таким Email уже существует");
@@ -116,6 +118,12 @@ namespace WebApplication1.Controllers
         new Claim(ClaimTypes.Role, user.Roles?.Rolename ?? "User")
     };
 
+            if (user.Clientid.HasValue)
+                claims.Add(new Claim("ClientId", user.Clientid.Value.ToString()));
+
+            if (user.Employeeid.HasValue)
+                claims.Add(new Claim("EmployeeId", user.Employeeid.Value.ToString()));
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
@@ -132,6 +140,7 @@ namespace WebApplication1.Controllers
                 token = new JwtSecurityTokenHandler().WriteToken(token)
             });
         }
+
 
     }
 }

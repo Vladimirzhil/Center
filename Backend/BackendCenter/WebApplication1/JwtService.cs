@@ -16,12 +16,18 @@ public class JwtService
 
     public string GenerateToken(Users user)
     {
-        var claims = new[]
-        {
-            new Claim(ClaimTypes.NameIdentifier, user.Userid.ToString()),
-            new Claim(ClaimTypes.Name, user.Email),
-            new Claim(ClaimTypes.Role, user.Roles.Rolename)
-        };
+        var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Userid.ToString()),
+        new Claim(ClaimTypes.Name, user.Email),
+        new Claim(ClaimTypes.Role, user.Roles.Rolename)
+    };
+
+        if (user.Clientid.HasValue)
+            claims.Add(new Claim("ClientId", user.Clientid.Value.ToString()));
+
+        if (user.Employeeid.HasValue)
+            claims.Add(new Claim("EmployeeId", user.Employeeid.Value.ToString()));
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -37,4 +43,5 @@ public class JwtService
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
 }

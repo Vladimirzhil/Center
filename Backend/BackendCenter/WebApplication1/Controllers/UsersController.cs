@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using WebApplication1;
 using WebApplication1.DTOS;
 using WebApplication1.Models;
 
 [ApiController]
 [Route("api/[controller]")]
+//[Authorize(Roles = "Admin")]
+
 public class UsersController : ControllerBase
 {
     private readonly CenterContext _context;
@@ -26,10 +27,10 @@ public class UsersController : ControllerBase
             {
                 UserId = u.Userid,
                 Email = u.Email,
-                PasswordHash=u.Passwordhash,
-                RoleId=u.Roleid,
-                ClientId=u.Clientid,
-                EmployeeId=u.Employeeid
+                PasswordHash = u.Passwordhash,
+                RoleId = u.Roleid,
+                ClientId = u.Clientid,
+                EmployeeId = u.Employeeid
             }).ToListAsync();
 
         return Ok(users);
@@ -57,10 +58,12 @@ public class UsersController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<UsersDTO>> CreateUsers(UsersCreateDTO dto)
     {
+        var hashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash);
+
         var users = new Users
         {
             Email = dto.Email,
-            Passwordhash = dto.PasswordHash,
+            Passwordhash = hashedPassword,
             Roleid = dto.RoleId,
             Clientid = dto.ClientId,
             Employeeid = dto.EmployeeId
@@ -71,6 +74,7 @@ public class UsersController : ControllerBase
 
         return CreatedAtAction(nameof(GetUsers), new { id = users.Userid }, new UsersDTO
         {
+            UserId = users.Userid,
             Email = users.Email,
             PasswordHash = users.Passwordhash,
             RoleId = users.Roleid,
@@ -87,7 +91,7 @@ public class UsersController : ControllerBase
         if (users == null) return NotFound();
 
         users.Email = dto.Email;
-        users.Passwordhash = dto.PasswordHash;
+        users.Passwordhash = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash); // Хэширование!
         users.Roleid = dto.RoleId;
         users.Clientid = dto.ClientId;
         users.Employeeid = dto.EmployeeId;

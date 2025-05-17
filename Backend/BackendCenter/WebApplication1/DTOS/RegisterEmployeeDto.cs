@@ -8,7 +8,7 @@
         public string Fio { get; set; }
         public string Phone { get; set; }
         public int JobTitleId { get; set; }
-        public int BrigadeId { get; set; }
+        public int? BrigadeId { get; set; }
     }
 
 }

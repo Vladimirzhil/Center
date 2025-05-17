@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApplication1;
@@ -18,6 +19,7 @@ public class OrganizationController : ControllerBase
 
     // GET: api/Organization
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<OrganizationDto>>> GetOrganization()
     {
         var organization = await _context.Organizations
@@ -33,6 +35,7 @@ public class OrganizationController : ControllerBase
 
     // GET: api/Organization/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<OrganizationDto>> GetOrganizations(int id)
     {
         var organization = await _context.Organizations.FindAsync(id);
@@ -48,6 +51,7 @@ public class OrganizationController : ControllerBase
 
     // POST: api/Organization
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<OrganizationDto>> CreateOrganization(OrganizationCreateDto dto)
     {
         var organization = new Organization
@@ -69,6 +73,7 @@ public class OrganizationController : ControllerBase
 
     // PUT: api/Organization/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateOrganization(int id, OrganizationCreateDto dto)
     {
         var organization = await _context.Organizations.FindAsync(id);
@@ -83,6 +88,7 @@ public class OrganizationController : ControllerBase
 
     // DELETE: api/Organization/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteOrganization(int id)
     {
         var organization = await _context.Organizations.FindAsync(id);

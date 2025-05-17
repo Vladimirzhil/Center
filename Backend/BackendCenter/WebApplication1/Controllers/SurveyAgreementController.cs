@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApplication1;
@@ -19,6 +20,7 @@ public class SurveyAgreementController : ControllerBase
 
     // GET: api/SurveyAgreement
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<SurveyAgreementDto>>> GetSurveyAgreements()
     {
         var surveyagreement = await _context.Surveyagreements
@@ -38,6 +40,7 @@ public class SurveyAgreementController : ControllerBase
 
     // GET: api/SurveyAgreement/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<SurveyAgreementDto>> GetSurveyAgreement(int id)
     {
         var surveyagreement = await _context.Surveyagreements.FindAsync(id);
@@ -57,6 +60,7 @@ public class SurveyAgreementController : ControllerBase
 
     // POST: api/SurveyAgreement
     [HttpPost]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<SurveyAgreementDto>> CreateSurveyAgreement(SurveyAgreementCreateDto dto)
     {
         var surveyagreement = new Surveyagreement
@@ -85,6 +89,7 @@ public class SurveyAgreementController : ControllerBase
 
     // PUT: api/SurveyAgreement/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<IActionResult> UpdateSurveyAgreement(int id, SurveyAgreementCreateDto dto)
     {
         var surveyagreement = await _context.Surveyagreements.FindAsync(id);
@@ -103,6 +108,7 @@ public class SurveyAgreementController : ControllerBase
 
     // DELETE: api/SurveyAgreement/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteSurveyAgreement(int id)
     {
         var surveyagreement = await _context.Surveyagreements.FindAsync(id);

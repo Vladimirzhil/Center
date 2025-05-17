@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,6 +20,7 @@ public class ApplicationController : ControllerBase
 
     // GET: api/Application
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<ApplicationDto>>> GetApplications()
     {
         var application = await _context.Applications
@@ -39,6 +41,7 @@ public class ApplicationController : ControllerBase
 
     // GET: api/Application/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<ApplicationDto>> GetApplication(int id)
     {
         var application = await _context.Applications.FindAsync(id);
@@ -59,6 +62,7 @@ public class ApplicationController : ControllerBase
 
     // POST: api/Application
     [HttpPost]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<ApplicationDto>> CreateApplication(ApplicationCreateDto dto)
     {
         var application = new Application
@@ -89,6 +93,7 @@ public class ApplicationController : ControllerBase
 
     // PUT: api/Application/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<IActionResult> UpdateApplication(int id, ApplicationCreateDto dto)
     {
         var application = await _context.Applications.FindAsync(id);
@@ -108,6 +113,7 @@ public class ApplicationController : ControllerBase
 
     // DELETE: api/Application/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteApplication(int id)
     {
         var application = await _context.Applications.FindAsync(id);

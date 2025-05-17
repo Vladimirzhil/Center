@@ -3,9 +3,12 @@ using WebApplication1.DTOS;
 using WebApplication1.Models;
 using WebApplication1;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "Admin")]
+
 public class EmployeeController : ControllerBase
 {
     private readonly CenterContext _context;

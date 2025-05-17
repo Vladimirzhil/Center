@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApplication1;
@@ -18,6 +19,7 @@ public class BrigadeController : ControllerBase
 
     // GET: api/Brigade
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<BrigadeDto>>> GetBrigades()
     {
         var brigades = await _context.Brigades
@@ -32,6 +34,7 @@ public class BrigadeController : ControllerBase
 
     // GET: api/Brigade/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<BrigadeDto>> GetBrigade(int id)
     {
         var brigade = await _context.Brigades.FindAsync(id);
@@ -46,6 +49,7 @@ public class BrigadeController : ControllerBase
 
     // POST: api/Brigade
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<BrigadeDto>> CreateBrigade(BrigadeCreateDto dto)
     {
         var brigade = new Brigade
@@ -65,6 +69,7 @@ public class BrigadeController : ControllerBase
 
     // PUT: api/Brigade/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateBrigade(int id, BrigadeCreateDto dto)
     {
         var brigade = await _context.Brigades.FindAsync(id);
@@ -78,6 +83,7 @@ public class BrigadeController : ControllerBase
 
     // DELETE: api/Brigade/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteBrigade(int id)
     {
         var brigade = await _context.Brigades.FindAsync(id);

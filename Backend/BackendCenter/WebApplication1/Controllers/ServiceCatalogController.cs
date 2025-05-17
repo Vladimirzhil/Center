@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApplication1;
@@ -35,6 +36,7 @@ public class ServiceCatalogController : ControllerBase
 
     // GET: api/ServiceCatalog/5
     [HttpGet("{id}")]
+
     public async Task<ActionResult<ServiceCatalogDto>> GetServiceCatalog(int id)
     {
         var servicecatalog = await _context.Servicecatalogs.FindAsync(id);
@@ -52,6 +54,8 @@ public class ServiceCatalogController : ControllerBase
 
     // POST: api/ServiceCatalog
     [HttpPost]
+    [Authorize(Roles = "Admin")]
+
     public async Task<ActionResult<ServiceCatalogDto>> CreateServiceCatalog(ServiceCatalogCreateDto dto)
     {
         var servicecatalog = new Servicecatalog
@@ -77,6 +81,8 @@ public class ServiceCatalogController : ControllerBase
 
     // PUT: api/ServiceCatalog/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
+
     public async Task<IActionResult> UpdateServiceCatalog(int id, ServiceCatalogCreateDto dto)
     {
         var servicecatalog = await _context.Servicecatalogs.FindAsync(id);
@@ -93,6 +99,8 @@ public class ServiceCatalogController : ControllerBase
 
     // DELETE: api/ServiceCatalog/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
+
     public async Task<IActionResult> DeleteServiceCatalog(int id)
     {
         var servicecatalog = await _context.Servicecatalogs.FindAsync(id);

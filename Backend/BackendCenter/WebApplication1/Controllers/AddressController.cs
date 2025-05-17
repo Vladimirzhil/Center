@@ -8,8 +8,6 @@ using WebApplication1.Models;
 
 [ApiController]
 [Route("api/[controller]")]
-
-[Authorize]
 public class AddressController : ControllerBase
 {
     private readonly CenterContext _context;
@@ -21,6 +19,7 @@ public class AddressController : ControllerBase
 
     // GET: api/Address
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<AddressDto>>> GetAddresses()
     {
         var address = await _context.Addresses
@@ -37,6 +36,7 @@ public class AddressController : ControllerBase
 
     // GET: api/Address/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<AddressDto>> GetAddress(int id)
     {
         var address = await _context.Addresses.FindAsync(id);
@@ -53,6 +53,7 @@ public class AddressController : ControllerBase
 
     // POST: api/Address
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<AddressDto>> CreateAddress(AddressCreateDto dto)
     {
         var address = new Address
@@ -76,6 +77,7 @@ public class AddressController : ControllerBase
 
     // PUT: api/Address/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateAddress(int id, AddressCreateDto dto)
     {
         var address = await _context.Addresses.FindAsync(id);
@@ -91,6 +93,7 @@ public class AddressController : ControllerBase
 
     // DELETE: api/Address/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteAddress(int id)
     {
         var address = await _context.Addresses.FindAsync(id);

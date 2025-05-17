@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using WebApplication1;
@@ -18,6 +19,7 @@ public class ClientController : ControllerBase
 
     // GET: api/Client
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<ClientDto>>> GetClients()
     {
         var clients = await _context.Clients
@@ -33,6 +35,7 @@ public class ClientController : ControllerBase
 
     // GET: api/Client/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<ClientDto>> GetClient(int id)
     {
         var client = await _context.Clients.FindAsync(id);
@@ -48,6 +51,7 @@ public class ClientController : ControllerBase
 
     // POST: api/Client
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<ClientDto>> CreateClient(ClientCreateDto dto)
     {
         var client = new Client
@@ -69,6 +73,7 @@ public class ClientController : ControllerBase
 
     // PUT: api/Client/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateClient(int id, ClientCreateDto dto)
     {
         var client = await _context.Clients.FindAsync(id);
@@ -83,6 +88,7 @@ public class ClientController : ControllerBase
 
     // DELETE: api/Client/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteClient(int id)
     {
         var client = await _context.Clients.FindAsync(id);
@@ -92,4 +98,5 @@ public class ClientController : ControllerBase
         await _context.SaveChangesAsync();
         return NoContent();
     }
+
 }

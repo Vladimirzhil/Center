@@ -1,9 +1,13 @@
 ﻿namespace WebApplication1.DTOS
 {
-    public class ApplicationCreateDto
+    public class ApplicationCreateForClientDto
+    {
+        public int ObjectSurveyId { get; set; }
+    }
+
+    public class ApplicationCreateDto : ApplicationCreateForClientDto
     {
         public int ClientId { get; set; }
-        public int ObjectSurveyId { get; set; }
         public int? BrigadeId { get; set; }
         public DateOnly IncomingDate { get; set; }
         public int StatusApplicationId { get; set; }

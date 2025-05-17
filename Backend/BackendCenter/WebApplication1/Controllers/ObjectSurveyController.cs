@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Security.AccessControl;
@@ -19,6 +20,7 @@ public class ObjectSurveyController : ControllerBase
 
     // GET: api/ObjectSurvey
     [HttpGet]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<IEnumerable<ObjectSurveyDto>>> GetObjectSurveys()
     {
         var objectsurvey = await _context.Objectsurveys
@@ -36,6 +38,7 @@ public class ObjectSurveyController : ControllerBase
 
     // GET: api/ObjectSurvey/5
     [HttpGet("{id}")]
+    [Authorize(Roles = "Admin,Employee")]
     public async Task<ActionResult<ObjectSurveyDto>> GetObjectSurvey(int id)
     {
         var objectsurvey = await _context.Objectsurveys.FindAsync(id);
@@ -53,6 +56,7 @@ public class ObjectSurveyController : ControllerBase
 
     // POST: api/ObjectSurvey
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<ObjectSurveyDto>> CreateObjectSurvey(ObjectSurveyCreateDto dto)
     {
         var objectsurvey = new Objectsurvey
@@ -77,6 +81,7 @@ public class ObjectSurveyController : ControllerBase
 
     // PUT: api/ObjectSurvey/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateObjectSurvey(int id, ObjectSurveyCreateDto dto)
     {
         var objectsurvey = await _context.Objectsurveys.FindAsync(id);
@@ -93,6 +98,7 @@ public class ObjectSurveyController : ControllerBase
 
     // DELETE: api/ObjectSurvey/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteObjectSurvey(int id)
     {
         var objectsurvey = await _context.Objectsurveys.FindAsync(id);
