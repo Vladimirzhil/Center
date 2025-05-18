@@ -8,7 +8,6 @@ using WebApplication1.Models;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Admin")]
 
 public class StatusAplicationController : ControllerBase
 {
@@ -49,6 +48,7 @@ public class StatusAplicationController : ControllerBase
 
     // POST: api/StatusApplication
     [HttpPost]
+    [Authorize(Roles = "Admin")]
     public async Task<ActionResult<StatusApplicationDto>> CreateStatusApplication(StatusApplicationCreateDto dto)
     {
         var statusapplication = new Statusapplication
@@ -68,6 +68,7 @@ public class StatusAplicationController : ControllerBase
 
     // PUT: api/StatusApplication/5
     [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateStatusApplication(int id, StatusApplicationCreateDto dto)
     {
         var statusapplication = await _context.Statusapplications.FindAsync(id);
@@ -81,6 +82,7 @@ public class StatusAplicationController : ControllerBase
 
     // DELETE: api/StatusApplication/5
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> DeleteStatusApplication(int id)
     {
         var statusapplication = await _context.Statusapplications.FindAsync(id);
