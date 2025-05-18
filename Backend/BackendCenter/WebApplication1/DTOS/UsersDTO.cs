@@ -10,7 +10,7 @@ namespace WebApplication1.DTOS
 
     public class UsersCreateDTO: UsersUpdateDTO
     {
-        public int? RoleId { get; set; }
+        public int RoleId { get; set; }
         public int? ClientId { get; set; }
         public int? EmployeeId { get; set; }
     }

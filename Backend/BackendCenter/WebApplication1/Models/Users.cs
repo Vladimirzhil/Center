@@ -8,7 +8,7 @@
 
         public string Passwordhash { get; set; } = null!;
 
-        public int? Roleid { get; set; }
+        public int Roleid { get; set; }
 
         public int? Clientid { get; set; }
 
