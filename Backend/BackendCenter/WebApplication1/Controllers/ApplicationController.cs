@@ -41,7 +41,7 @@ public class ApplicationController : ControllerBase
 
     // GET: api/Application/5
     [HttpGet("{id}")]
-    [Authorize(Roles = "Admin,Employee")]
+    [Authorize]
     public async Task<ActionResult<ApplicationDto>> GetApplication(int id)
     {
         var application = await _context.Applications.FindAsync(id);

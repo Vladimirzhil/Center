@@ -14,7 +14,7 @@ namespace WebApplication1.DTOS
         public int EmployeeId { get; set; }
 
         [FromForm]
-        public IFormFile? File { get; set; } // Файл необязателен для обновления
+        public IFormFile? File { get; set; } 
     }
 
 }

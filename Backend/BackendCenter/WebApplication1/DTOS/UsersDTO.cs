@@ -19,7 +19,5 @@ namespace WebApplication1.DTOS
     {
         public int UserId { get; set; }
 
-        public string RoleName { get; set; }
-
     }
 }

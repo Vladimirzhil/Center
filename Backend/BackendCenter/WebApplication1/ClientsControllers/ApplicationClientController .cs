@@ -40,9 +40,18 @@ public class ApplicationClientController : ControllerBase
         Console.WriteLine($"ClientId: {clientId}");
 
         var applications = await _context.Applications
-            //.Include(a => a.Objectsurvey) // временно убрано
             .Where(a => a.Clientid == clientId)
-            .ToListAsync();
+            .Select(a => new ApplicationDto
+            {
+                ApplicationId = a.Applicationid,
+                ClientId = a.Clientid,
+                ObjectSurveyId = a.Objectsurveyid,
+                BrigadeId = a.Brigadeid,
+                IncomingDate = a.Incomingdate,
+                StatusApplicationId = a.Statusapplicationid,
+                StarteDate = a.Startedate,
+                EndDate = a.Enddate
+            }).ToListAsync();
 
         Console.WriteLine($"Applications count: {applications.Count}");
 

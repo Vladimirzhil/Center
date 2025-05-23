@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Authorization;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "Admin")]
 
 public class EmployeeController : ControllerBase
 {
@@ -19,6 +18,7 @@ public class EmployeeController : ControllerBase
     }
 
     // GET: api/Employee
+    [Authorize(Roles = "Admin")]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployees()
     {
@@ -35,6 +35,7 @@ public class EmployeeController : ControllerBase
     }
 
     // GET: api/Employee/5
+    [Authorize(Roles = "Admin,Client")]
     [HttpGet("{id}")]
     public async Task<ActionResult<EmployeeDto>> GetEmployee(int id)
     {
@@ -52,6 +53,7 @@ public class EmployeeController : ControllerBase
     }
 
     // POST: api/Employee
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<ActionResult<EmployeeDto>> CreateEmployee(EmployeeCreateDto dto)
     {
@@ -77,6 +79,7 @@ public class EmployeeController : ControllerBase
     }
 
     // PUT: api/Employee/5
+    [Authorize(Roles = "Admin")]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateEmployee(int id, EmployeeCreateDto dto)
     {
@@ -93,6 +96,7 @@ public class EmployeeController : ControllerBase
     }
 
     // DELETE: api/Employee/5
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteEmployee(int id)
     {

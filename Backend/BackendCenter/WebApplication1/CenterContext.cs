@@ -43,8 +43,8 @@ public partial class CenterContext : DbContext
 
     public virtual DbSet<Surveyreport> Surveyreports { get; set; }
 
-    public virtual DbSet<Userlog> Userlogs { get; set; }
     public virtual DbSet<Users> Userses { get; set; }
+
     public virtual DbSet<Roles> Roleses { get; set; }
 
 
@@ -349,20 +349,6 @@ public partial class CenterContext : DbContext
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("surveyreport_employeeid_fkey");
         });
-
-        modelBuilder.Entity<Userlog>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("userlog_pkey");
-
-            entity.ToTable("userlog");
-
-            entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Datetime)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnName("datetime");
-            entity.Property(e => e.Usern).HasColumnName("usern");
-        });
-        base.OnModelCreating(modelBuilder);
 
         modelBuilder.Entity<Roles>(entity =>
         {

@@ -8,8 +8,17 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000") // URL твоего фронтенда
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials(); // если ты используешь куки или авторизацию
+        });
+});
 builder.Services.AddScoped<AnalysisService>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -87,5 +96,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AllowFrontend");
 
 app.Run();

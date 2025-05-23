@@ -141,6 +141,22 @@ namespace WebApplication1.Controllers
             });
         }
 
+        [AllowAnonymous]
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
+        {
+            var user = await _context.Userses.FirstOrDefaultAsync(u => u.Email == dto.Email);
+            if (user == null)
+                return NotFound("Пользователь не найден");
+
+            if (string.IsNullOrWhiteSpace(dto.NewPassword))
+                return BadRequest("Пароль не может быть пустым");
+
+            user.Passwordhash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+            await _context.SaveChangesAsync();
+
+            return Ok("Пароль успешно обновлён");
+        }
 
     }
 }

@@ -34,7 +34,7 @@ public class BrigadeController : ControllerBase
 
     // GET: api/Brigade/5
     [HttpGet("{id}")]
-    [Authorize(Roles = "Admin,Employee")]
+    [Authorize]
     public async Task<ActionResult<BrigadeDto>> GetBrigade(int id)
     {
         var brigade = await _context.Brigades.FindAsync(id);
