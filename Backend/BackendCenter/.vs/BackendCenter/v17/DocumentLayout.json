@@ -3,20 +3,48 @@
   "WorkspaceRootPath": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\clientscontrollers\\objectsurveyclientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\clientscontrollers\\objectsurveyclientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\clientscontrollers\\clientprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\clientscontrollers\\clientprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\jobtitlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\jobtitlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\dtos\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\dtos\\resetpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\dtos\\registeremployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\dtos\\registeremployeedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\servicecatalogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\servicecatalogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\selectedservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\selectedservicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\organizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\organizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\objectsurveycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\objectsurveycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\brigadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\brigadecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|d:\\\u0443\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0432\u043A\u0440\\center\\backend\\backendcenter\\webapplication1\\dtos\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46519D66-A92C-4C3E-A943-409A84D3F602}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\dtos\\usersdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +54,150 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ObjectSurveyClientController.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\ClientsControllers\\ObjectSurveyClientController.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\ClientsControllers\\ObjectSurveyClientController.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\ClientsControllers\\ObjectSurveyClientController.cs",
-              "RelativeToolTip": "WebApplication1\\ClientsControllers\\ObjectSurveyClientController.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAuwI0AAAAuAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "JobTitleController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\JobTitleController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\JobTitleController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\JobTitleController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\JobTitleController.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAQwF0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:49:44.331Z",
+              "WhenOpened": "2025-05-28T00:02:39.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\EmployeeController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAQwG0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T00:02:37.79Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ResetPasswordDto.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\DTOS\\ResetPasswordDto.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\DTOS\\ResetPasswordDto.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\DTOS\\ResetPasswordDto.cs",
-              "RelativeToolTip": "WebApplication1\\DTOS\\ResetPasswordDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAdAAAAAAAAAA==",
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\UsersController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAQwHIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-23T10:19:03.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClientProfileController.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\ClientsControllers\\ClientProfileController.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\ClientsControllers\\ClientProfileController.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\ClientsControllers\\ClientProfileController.cs",
-              "RelativeToolTip": "WebApplication1\\ClientsControllers\\ClientProfileController.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAcwDwAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T21:32:15.563Z",
+              "WhenOpened": "2025-05-27T23:57:33.397Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "RegisterEmployeeDto.cs",
-              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\DTOS\\RegisterEmployeeDto.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\DTOS\\RegisterEmployeeDto.cs",
-              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\DTOS\\RegisterEmployeeDto.cs",
-              "RelativeToolTip": "WebApplication1\\DTOS\\RegisterEmployeeDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "ServiceCatalogController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\ServiceCatalogController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ServiceCatalogController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\ServiceCatalogController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\ServiceCatalogController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAQwHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-19T20:47:59.498Z"
+              "WhenOpened": "2025-05-27T23:56:30.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SelectedServicesController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\SelectedServicesController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\SelectedServicesController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\SelectedServicesController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\SelectedServicesController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAiwHgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:52:25.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ObjectSurveyController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\ObjectSurveyController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ObjectSurveyController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\ObjectSurveyController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\ObjectSurveyController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAywGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:28:42.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddressController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\AddressController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\AddressController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\AddressController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\AddressController.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAQwF8AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:28:47.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrganizationController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\OrganizationController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\OrganizationController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\OrganizationController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\OrganizationController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAqwDUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:28:37.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BrigadeController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\BrigadeController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\BrigadeController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\BrigadeController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\BrigadeController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwFEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:07:39.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationController.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\ApplicationController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ApplicationController.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\Controllers\\ApplicationController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\ApplicationController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAQwHMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T21:56:16.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsersDTO.cs",
+              "DocumentMoniker": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\DTOS\\UsersDTO.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\DTOS\\UsersDTO.cs",
+              "ToolTip": "D:\\\u0423\u0447\u0435\u0431\u0430\\\u0444\u0438\u043D\u0430\u043B\\\u0412\u043A\u0440\\Center\\Backend\\BackendCenter\\WebApplication1\\DTOS\\UsersDTO.cs",
+              "RelativeToolTip": "WebApplication1\\DTOS\\UsersDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T15:24:50.84Z",
+              "EditorCaption": ""
             }
           ]
         }

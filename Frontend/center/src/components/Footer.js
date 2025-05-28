@@ -20,7 +20,7 @@ export default function Footer() {
                         title="Company Location1"
                         src="https://yandex.ru/map-widget/v1/-/CHCiA2~y"
                         width="500"
-                        height="300"
+                        height="250"
                         style={{ border: 0, margin:'10px' }}
                         allowFullScreen=""
                         aria-hidden="false"
@@ -28,14 +28,14 @@ export default function Footer() {
                     </div>
                 <div className="footer-right">
                         <h4>ЛАБОРАТОРИЯ</h4>
-                        <p><FaMapMarkerAlt /> 390010, Рязань, проезд Шабулина, 8 </p>
+                        <p><FaMapMarkerAlt /> 390010, Рязань, проезд Шабулина, 8к2 </p>
                         <p><MdLocalPhone /> +7 (4912) 46-41-03</p>
                         <p href="mailto:lab-ciskim@yandex.ru"><MdMail/> <a href="mailto:lab-ciskim@yandex.ru">lab-ciskim@yandex.ru</a></p>  
                         <iframe
                         title="Company Location2"
-                        src="https://yandex.ru/map-widget/v1/-/CHCiA2~y"
+                        src="https://yandex.ru/map-widget/v1/-/CHCFb-L2"
                         width="500"
-                        height="300"
+                        height="250"
                         style={{ border: 0, margin:'10px'}}
                         allowFullScreen=""
                         aria-hidden="false"

@@ -74,7 +74,6 @@ public class ClientProfileController : ControllerBase
         if (user == null) return NotFound("Пользователь не найден");
 
         user.Email = dto.Email;
-        user.Passwordhash = BCrypt.Net.BCrypt.HashPassword(dto.PasswordHash);
 
         await _context.SaveChangesAsync();
         return NoContent();

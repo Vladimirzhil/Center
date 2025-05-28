@@ -19,7 +19,7 @@ public class BrigadeController : ControllerBase
 
     // GET: api/Brigade
     [HttpGet]
-    [Authorize(Roles = "Admin,Employee")]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<BrigadeDto>>> GetBrigades()
     {
         var brigades = await _context.Brigades

@@ -1,13 +1,17 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
 import { AuthContext } from './AuthContext';
+import { IMaskInput } from 'react-imask';
+
+
+Modal.setAppElement('#root'); // укажи корневой элемент твоего приложения
 
 export default function Profile() {
   const { token } = useContext(AuthContext);
   const [clientData, setClientData] = useState({ fio: '', phone: '' });
-  const [userData, setUserData] = useState({ email: '', passwordHash: '' });
-  const [editMode, setEditMode] = useState(false);
-  const [editCreds, setEditCreds] = useState(false);
+  const [userData, setUserData] = useState({ email: '' });
+  const [editModalOpen, setEditModalOpen] = useState(false);
 
   useEffect(() => {
     if (!token) return;
@@ -22,7 +26,7 @@ export default function Profile() {
         const emailRes = await axios.get('https://localhost:44397/api/ClientProfile/email', {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setUserData(prev => ({ ...prev, email: emailRes.data.email }));
+        setUserData({ email: emailRes.data.email });
       } catch (error) {
         console.error('Ошибка при получении данных профиля:', error);
       }
@@ -31,91 +35,86 @@ export default function Profile() {
     fetchProfile();
   }, [token]);
 
-  const handleClientSave = async () => {
+  const handleSave = async (e) => {
+    e.preventDefault();
     try {
       await axios.put('https://localhost:44397/api/ClientProfile', clientData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setEditMode(false);
-    } catch (error) {
-      console.error('Ошибка при обновлении данных клиента:', error);
-    }
-  };
 
-  const handleUserSave = async () => {
-    try {
       await axios.put('https://localhost:44397/api/ClientProfile/email', userData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setEditCreds(false);
+
+      setEditModalOpen(false);
     } catch (error) {
-      console.error('Ошибка при обновлении email/пароля:', error);
+      console.error('Ошибка при сохранении данных:', error);
     }
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Профиль клиента</h2>
+    <div className="container mt-5">
+        <div className="profile-card">
+        <h2>Профиль клиента</h2>
 
-      <div className="mb-3">
-        <label className="form-label">ФИО</label>
-        <input
-          type="text"
-          className="form-control"
-          value={clientData.fio}
-          disabled={!editMode}
-          onChange={(e) => setClientData({ ...clientData, fio: e.target.value })}
-        />
-      </div>
+        <p><strong>ФИО:</strong> {clientData.fio}</p>
+        <p><strong>Телефон:</strong> {clientData.phone}</p>
+        <p><strong>Email:</strong> {userData.email}</p>
 
-      <div className="mb-3">
-        <label className="form-label">Телефон</label>
-        <input
-          type="text"
-          className="form-control"
-          value={clientData.phone}
-          disabled={!editMode}
-          onChange={(e) => setClientData({ ...clientData, phone: e.target.value })}
-        />
-      </div>
+         <div className="button-center">
+          <button className="btn" onClick={() => setEditModalOpen(true)}>
+          Редактировать данные
+          </button>
+         </div>
+    </div>
 
-      {!editMode ? (
-        <button className="btn btn-primary me-2" onClick={() => setEditMode(true)}>Редактировать</button>
-      ) : (
-        <button className="btn btn-success me-2" onClick={handleClientSave}>Сохранить</button>
-      )}
+      <Modal
+        className="custom-modal"
+        isOpen={editModalOpen}
+        onRequestClose={() => setEditModalOpen(false)}
+        contentLabel="Редактирование профиля"
+      >
+        <h2>Редактирование профиля</h2>
+        <form onSubmit={handleSave}>
+          <label>
+            <span className="label-text">ФИО:</span>
+            <input
+              type="text"
+              value={clientData.fio}
+              onChange={(e) => setClientData({ ...clientData, fio: e.target.value })}
+              required
+            />
+          </label>
 
-      <hr />
+          <label>
+  <span className="label-text">Телефон:</span>
+  <IMaskInput
+    mask="8(000)000-00-00"
+    value={clientData.phone}
+    onAccept={(value) => setClientData({ ...clientData, phone: value })}
+    placeholder="8(___)___-__-__"
+    type="tel"
+    required
+    className="your-input-class"
+  />
+</label>
 
-      <h4>Данные входа</h4>
+          <label>
+            <span className="label-text">Email:</span>
+            <input
+              type="email"
+              value={userData.email}
+              onChange={(e) => setUserData({ ...userData, email: e.target.value })}
+              required
+            />
+          </label>
 
-      <div className="mb-3">
-        <label className="form-label">Email</label>
-        <input
-          type="email"
-          className="form-control"
-          value={userData.email}
-          disabled={!editCreds}
-          onChange={(e) => setUserData({ ...userData, email: e.target.value })}
-        />
-      </div>
-
-      <div className="mb-3">
-        <label className="form-label">Новый пароль</label>
-        <input
-          type="password"
-          className="form-control"
-          value={userData.passwordHash}
-          disabled={!editCreds}
-          onChange={(e) => setUserData({ ...userData, passwordHash: e.target.value })}
-        />
-      </div>
-
-      {!editCreds ? (
-        <button className="btn btn-secondary" onClick={() => setEditCreds(true)}>Изменить email/пароль</button>
-      ) : (
-        <button className="btn btn-success" onClick={handleUserSave}>Сохранить вход</button>
-      )}
+          <div className="modal-buttons">
+            <button className="btn" type="submit">Сохранить</button>
+            <button className="btn" type="button" onClick={() => setEditModalOpen(false)}>Отмена</button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 }
