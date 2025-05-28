@@ -267,24 +267,13 @@ export default function ApplicationsPage() {
                     Добавить заявку
                 </button>
             )}
-            <div style={{ 
-    display: 'flex', 
-    alignItems: 'center', 
-    justifyContent: 'center', 
-    gap: '10px', 
-    marginBottom: '20px' 
-}}>
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
     <input
         type="text"
         placeholder="Фильтр по ФИО клиента"
         value={clientSearch}
         onChange={(e) => setClientSearch(e.target.value)}
-        style={{
-            padding: '8px',
-            width: '100%',
-            borderRadius: '10px',
-            border: '1.5px solid #303030'
-        }}
+        style={{ padding: '8px', width: '100%', borderRadius: '10px', border: '1.5px solid #303030' }}
     />
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
       <span>Дата поступления</span>

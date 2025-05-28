@@ -62,7 +62,7 @@ export default function Profile() {
         <p><strong>Email:</strong> {userData.email}</p>
 
          <div className="button-center">
-          <button className="btn" onClick={() => setEditModalOpen(true)}>
+          <button className="btns" onClick={() => setEditModalOpen(true)}>
           Редактировать данные
           </button>
          </div>
@@ -110,8 +110,8 @@ export default function Profile() {
           </label>
 
           <div className="modal-buttons">
-            <button className="btn" type="submit">Сохранить</button>
-            <button className="btn" type="button" onClick={() => setEditModalOpen(false)}>Отмена</button>
+            <button className="btns" type="submit">Сохранить</button>
+            <button className="btns" type="button" onClick={() => setEditModalOpen(false)}>Отмена</button>
           </div>
         </form>
       </Modal>

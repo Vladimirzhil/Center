@@ -123,7 +123,9 @@ export default function Header() {
                 <Link to="/profile">
                   <button className='profbutton'>Персональные данные</button>
                 </Link>
+                <Link to="/">
                 <button className='exitbutton' onClick={logout}>Выйти</button>
+                </Link>
               </div>
             </div>
           )}

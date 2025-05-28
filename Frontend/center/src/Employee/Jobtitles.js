@@ -1,4 +1,3 @@
-// Компонент управления должностями (Job Titles)
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -14,6 +13,7 @@ export default function Jobtitles() {
     jobTitleName: ''
   });
   const [userRole, setUserRole] = useState('');
+  const [searchTitle, setSearchTitle] = useState(''); 
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -79,6 +79,10 @@ export default function Jobtitles() {
     }
   };
 
+  const filteredJobTitles = jobTitles.filter(j =>
+    j.jobTitleName.toLowerCase().includes(searchTitle.toLowerCase())
+  );
+
   return (
     <div className="applications-container">
       <h1>Должности</h1>
@@ -86,7 +90,15 @@ export default function Jobtitles() {
       {userRole === 'Admin' && (
         <button className="btns" onClick={() => openModal()}>Добавить должность</button>
       )}
-
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+      <input
+        type="text"
+        placeholder="Поиск по названию"
+        value={searchTitle}
+        onChange={(e) => setSearchTitle(e.target.value)}
+        style={{ padding: '8px', width: '100%', borderRadius: '10px', border: '1.5px solid #303030' }}
+      />
+      </div>
       <div className="table-responsive">
         <table className="applications-table">
           <thead>
@@ -98,7 +110,7 @@ export default function Jobtitles() {
             </tr>
           </thead>
           <tbody>
-            {jobTitles.map(job => (
+            {filteredJobTitles.map(job => (
               <tr key={job.jobTitleId}>
                 <td>{job.jobTitleId}</td>
                 <td>{job.jobTitleName}</td>

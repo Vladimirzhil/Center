@@ -164,7 +164,7 @@ public class ApplicationClientController : ControllerBase
             if (!isOwner) return Forbid();
 
             var report = await _context.Surveyreports
-                .FirstOrDefaultAsync(r => r.Aplicationid == applicationId);
+                .FirstOrDefaultAsync(r => r.Applicationid == applicationId);
 
             if (report == null) return NotFound();
 

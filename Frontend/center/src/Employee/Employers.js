@@ -1,8 +1,8 @@
-// Компонент управления сотрудниками (Employers)
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import { jwtDecode } from 'jwt-decode';
+import { IMaskInput } from 'react-imask';
 
 Modal.setAppElement('#root');
 
@@ -19,6 +19,7 @@ export default function Employers() {
     brigadeId: ''
   });
   const [userRole, setUserRole] = useState('');
+  const [searchFio, setSearchFio] = useState(''); // Фильтр по ФИО
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -97,6 +98,10 @@ export default function Employers() {
     }
   };
 
+  const filteredEmployees = employees.filter(emp =>
+    emp.fio.toLowerCase().includes(searchFio.toLowerCase())
+  );
+
   return (
     <div className="applications-container">
       <h1>Сотрудники</h1>
@@ -104,7 +109,15 @@ export default function Employers() {
       {userRole === 'Admin' && (
         <button className="btns" onClick={() => openModal()}>Добавить сотрудника</button>
       )}
-
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+      <input
+        type="text"
+        placeholder="Поиск по ФИО"
+        value={searchFio}
+        onChange={(e) => setSearchFio(e.target.value)}
+        style={{ padding: '8px', width: '100%', borderRadius: '10px', border: '1.5px solid #303030' }}
+      />
+      </div>
       <div className="table-responsive">
         <table className="applications-table">
           <thead>
@@ -119,7 +132,7 @@ export default function Employers() {
             </tr>
           </thead>
           <tbody>
-            {employees.map(emp => (
+            {filteredEmployees.map(emp => (
               <tr key={emp.employeeid}>
                 <td>{emp.employeeid}</td>
                 <td>{emp.fio}</td>
@@ -151,8 +164,14 @@ export default function Employers() {
             <input type="text" value={formData.fio} onChange={(e) => setFormData({ ...formData, fio: e.target.value })} required />
           </div>
           <div>
-            <label>Телефон:</label>
-            <input type="text" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} required />
+          <label>Телефон:</label>
+          <IMaskInput
+            mask="8(000)000-00-00"
+            value={formData.phone}
+            onAccept={(value) => setFormData({ ...formData, phone: value })}
+            placeholder="Телефон"
+            required
+          />
           </div>
           <div>
             <label>Должность:</label>

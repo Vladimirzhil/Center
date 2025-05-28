@@ -222,16 +222,25 @@ const ClientObjectsAccordion = () => {
   };
 
   const confirmAgreement = async (applicationId) => {
-    try {
-      await axios.post(`https://localhost:44397/api/ApplicationClient/${applicationId}/agreement/confirm`, {}, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      console.log('Договор подтвержден');
-      toggleAccordion(expandedIds);
-    } catch {
-      console.log('Не удалось подтвердить договор');
+  try {
+    await axios.patch(`https://localhost:44397/api/ApplicationClient/${applicationId}/agreement/confirm`, {}, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    console.log('Договор подтвержден');
+
+    const objectSurveyId = objects.find(obj =>
+      dataByObject[obj.objectsurveyid]?.some(app => app.applicationId === applicationId)
+    )?.objectsurveyid;
+
+    if (objectSurveyId) {
+      await refreshObjectData(objectSurveyId);
     }
-  };
+
+  } catch {
+    console.log('Не удалось подтвердить договор');
+  }
+};
+
 
   const downloadReport = async (reportId) => {
     try {

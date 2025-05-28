@@ -1,4 +1,3 @@
-// Компонент для управления справочником услуг (ServiceCatalog)
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -17,6 +16,7 @@ export default function Services() {
     description: ''
   });
   const [userRole, setUserRole] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -81,6 +81,10 @@ export default function Services() {
     }
   };
 
+  const filteredServices = services.filter(s =>
+    s.serviceName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="applications-container">
       <h1>Справочник услуг</h1>
@@ -89,6 +93,15 @@ export default function Services() {
         <button className="btns" onClick={() => openModal()}>Добавить услугу</button>
       )}
 
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+      <input
+        type="text"
+        placeholder="Поиск по названию услуги..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{ padding: '8px', width: '100%', borderRadius: '10px', border: '1.5px solid #303030' }} 
+      />
+      </div>
       <div className="table-responsive">
         <table className="applications-table">
           <thead>
@@ -103,7 +116,7 @@ export default function Services() {
             </tr>
           </thead>
           <tbody>
-            {services.map(serv => (
+            {filteredServices.map(serv => (
               <tr key={serv.serviceId}>
                 <td>{serv.serviceId}</td>
                 <td>{serv.serviceName}</td>

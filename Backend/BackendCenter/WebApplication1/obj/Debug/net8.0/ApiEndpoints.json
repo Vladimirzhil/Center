@@ -1872,7 +1872,7 @@
     "ContainingType": "SurveyReportController",
     "Method": "Update",
     "RelativePath": "api/SurveyReport/update",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [

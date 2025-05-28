@@ -6,6 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { IMaskInput } from 'react-imask';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
+
 const RegisterPage = () => {
   const [fio, setFio] = useState('');
   const [phone, setPhone] = useState('');

@@ -2,7 +2,7 @@
 {
     public class SurveyReportCreateDto
     {
-        public int? AplicationId { get; set; }
+        public int? ApplicationId { get; set; }
         public int? EmployeeId { get; set; }
         public string FileReport { get; set; }
     }

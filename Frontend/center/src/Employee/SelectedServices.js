@@ -1,4 +1,3 @@
-// Компонент для управления выбранными услугами (SelectedServices)
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -21,6 +20,10 @@ export default function SelectedServices() {
     volume: ''
   });
   const [userRole, setUserRole] = useState('');
+
+  const [filterClient, setFilterClient] = useState('');
+  const [filterDate, setFilterDate] = useState('');
+  const [filterAddress, setFilterAddress] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -69,6 +72,22 @@ export default function SelectedServices() {
 
     return `${clientName} — ${date} — ${addrStr}`;
   };
+
+  const filteredServices = selectedServices.filter(item => {
+    const app = applications.find(a => a.applicationId === item.applicationId);
+    const client = clients.find(c => c.clientId === app?.clientId);
+    const object = objects.find(o => o.objectSurveyId === app?.objectSurveyId);
+    const address = addresses.find(a => a.addressId === object?.addressId);
+    const clientName = client?.fio?.toLowerCase() || '';
+    const incomingDate = app?.incomingDate?.split('T')[0] || '';
+    const addressStr = address ? `${address.cityName}, ${address.streetName} ${address.number}`.toLowerCase() : '';
+
+    return (
+      clientName.includes(filterClient.toLowerCase()) &&
+      incomingDate.includes(filterDate) &&
+      addressStr.includes(filterAddress.toLowerCase())
+    );
+  });
 
   const openModal = (item = null) => {
     if (item) {
@@ -128,6 +147,12 @@ export default function SelectedServices() {
         <button className="btns" onClick={() => openModal()}>Добавить услугу</button>
       )}
 
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+        <input type="text" placeholder="ФИО клиента" value={filterClient} onChange={(e) => setFilterClient(e.target.value)} style={{ padding: '8px', width: '100%', borderRadius: '10px', border: '1.5px solid #303030' }}/>
+        <input type="date" placeholder="Дата заявки" value={filterDate} onChange={(e) => setFilterDate(e.target.value)} style={{ padding: '8px', width: '100%', borderRadius: '10px', border: '1.5px solid #303030' }}/>
+        <input type="text" placeholder="Адрес" value={filterAddress} onChange={(e) => setFilterAddress(e.target.value)} style={{ padding: '8px', width: '100%', borderRadius: '10px', border: '1.5px solid #303030' }}/>
+      </div>
+
       <div className="table-responsive">
         <table className="applications-table">
           <thead>
@@ -142,7 +167,7 @@ export default function SelectedServices() {
             </tr>
           </thead>
           <tbody>
-            {selectedServices.map(item => (
+            {filteredServices.map(item => (
               <tr key={item.selectedServicesId}>
                 <td>{item.selectedServicesId}</td>
                 <td>{getApplicationInfo(item.applicationId)}</td>

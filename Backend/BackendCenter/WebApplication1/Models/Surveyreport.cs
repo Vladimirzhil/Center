@@ -7,7 +7,7 @@ public partial class Surveyreport
 {
     public int Reportid { get; set; }
 
-    public int? Aplicationid { get; set; }
+    public int? Applicationid { get; set; }
 
     public int? Employeeid { get; set; }
 

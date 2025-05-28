@@ -27,7 +27,7 @@ public class SurveyReportController : ControllerBase
             .Select(r => new SurveyReportDto
             {
                 ReportId = r.Reportid,
-                AplicationId = r.Aplicationid,
+                ApplicationId = r.Applicationid,
                 EmployeeId = r.Employeeid,
                 FileReport = r.Filereport
             }).ToListAsync();
@@ -47,7 +47,7 @@ public class SurveyReportController : ControllerBase
         return Ok(new SurveyReportDto
         {
             ReportId = report.Reportid,
-            AplicationId = report.Aplicationid,
+            ApplicationId = report.Applicationid,
             EmployeeId = report.Employeeid,
             FileReport = report.Filereport
         });
@@ -66,7 +66,7 @@ public class SurveyReportController : ControllerBase
 
         var report = new Surveyreport
         {
-            Aplicationid = dto.ApplicationId,
+            Applicationid = dto.ApplicationId,
             Employeeid = dto.EmployeeId,
             Filereport = fileName
         };
@@ -90,7 +90,7 @@ public class SurveyReportController : ControllerBase
 
 
     // PUT: api/SurveyReport
-    [HttpPut("update")]
+    [HttpPost("update")]
     [Consumes("multipart/form-data")]
     [Authorize(Roles = "Admin,Employee")]
     public async Task<IActionResult> Update([FromForm] UpdateSurveyReportDto dto)
@@ -98,7 +98,7 @@ public class SurveyReportController : ControllerBase
         var report = await _context.Surveyreports.FindAsync(dto.ReportId);
         if (report == null) return NotFound("Отчёт не найден");
 
-        report.Aplicationid = dto.ApplicationId;
+        report.Applicationid = dto.ApplicationId;
         report.Employeeid = dto.EmployeeId;
 
         if (dto.File != null && dto.File.Length > 0)

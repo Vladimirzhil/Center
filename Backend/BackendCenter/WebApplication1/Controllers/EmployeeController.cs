@@ -18,7 +18,7 @@ public class EmployeeController : ControllerBase
     }
 
     // GET: api/Employee
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Employee")]
     [HttpGet]
     public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetEmployees()
     {

@@ -335,12 +335,12 @@ public partial class CenterContext : DbContext
             entity.ToTable("surveyreport");
 
             entity.Property(e => e.Reportid).HasColumnName("reportid");
-            entity.Property(e => e.Aplicationid).HasColumnName("aplicationid");
+            entity.Property(e => e.Applicationid).HasColumnName("applicationid");
             entity.Property(e => e.Employeeid).HasColumnName("employeeid");
             entity.Property(e => e.Filereport).HasColumnName("filereport");
 
             entity.HasOne(d => d.Application).WithMany(p => p.Surveyreports)
-                .HasForeignKey(d => d.Aplicationid)
+                .HasForeignKey(d => d.Applicationid)
                 .OnDelete(DeleteBehavior.Restrict)
                 .HasConstraintName("surveyreport_aplicationid_fkey");
 
